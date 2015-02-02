@@ -24,5 +24,23 @@
       padding-right: 30px !important;
     }
     
+    .generate-padded-left-columns(15);
+    .generate-padded-right-columns(15);
+    
   }
 }
+
+.generate-padded-left-columns(@n, @i: 1) when (@i =< @n) {
+  &.add-extra-padding-left-@{i}{
+    padding-left: ((@n * @i) + 0px) !important;
+  }
+  .generate-padded-left-columns(@n, (@i + 1));
+}
+
+.generate-padded-right-columns(@n, @i: 1) when (@i =< @n) {
+  &.add-extra-padding-right-@{i}{
+    padding-right: ((@n * @i) + 0px) !important;
+  }
+  .generate-padded-right-columns(@n, (@i + 1));
+}
+
