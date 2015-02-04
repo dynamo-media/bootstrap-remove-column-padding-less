@@ -7,13 +7,53 @@
 
 .row{
   [class*="col-"] {
-    
-    &.no-padding-left{
-      padding-left: 0 !important;
+
+    &.no-padding-left-xs{
+      @media @mobile-portrait, @mobile-landscape, @small-tablet-portrait{
+        padding-left: 0 !important;
+      }
     }
-    
-    &.no-padding-right{
-      padding-right: 0 !important;
+
+    &.no-padding-left-sm{
+      @media @small-tablet-landscape, @tablet-portrait{
+        padding-left: 0 !important;
+      }
+    }
+
+    &.no-padding-left-md{
+      @media @tablet-landscape{
+        padding-left: 0 !important;
+      }
+    }
+
+    &.no-padding-left-lg{
+      @media @desktop{
+        padding-left: 0 !important;
+      }
+    }
+
+    &.no-padding-left-xs{
+      @media @mobile-portrait, @mobile-landscape, @small-tablet-portrait{
+        padding-right: 0 !important;
+      }
+    }
+
+    &.no-padding-right-sm{
+      @media @small-tablet-landscape, @tablet-portrait{
+        padding-right: 0 !important;
+      }
+    }
+
+    &.no-padding-right-md{
+      @media @tablet-landscape{
+        padding-right: 0 !important;
+      }
+    }
+
+    &.no-padding-right-lg{
+      @media @desktop{
+        padding-right: 0 !important;
+      }
     }
     
      &.add-extra-padding-left{
@@ -31,16 +71,59 @@
 }
 
 .generate-padded-left-columns(@n, @i: 1) when (@i =< @n) {
-  &.add-extra-padding-left-@{i}{
-    padding-left: ((@n * @i) + 0px) !important;
+  &.add-extra-padding-left-xs-@{i}{
+    @media @mobile-portrait, @mobile-landscape, @small-tablet-portrait{
+      padding-left: ((@n * @i) + 0px) !important;
+    }
   }
+
+  &.add-extra-padding-left-sm-@{i}{
+    @media @small-tablet-landscape, @tablet-portrait{
+      padding-left: ((@n * @i) + 0px) !important;
+    }
+  }
+
+  &.add-extra-padding-left-md-@{i}{
+    @media @tablet-landscape{
+      padding-left: ((@n * @i) + 0px) !important;
+    }
+  }
+
+  &.add-extra-padding-left-lg-@{i}{
+    @media @desktop{
+      padding-left: ((@n * @i) + 0px) !important;
+    }
+  }
+
   .generate-padded-left-columns(@n, (@i + 1));
 }
 
 .generate-padded-right-columns(@n, @i: 1) when (@i =< @n) {
-  &.add-extra-padding-right-@{i}{
-    padding-right: ((@n * @i) + 0px) !important;
+
+  &.add-extra-padding-right-xs-@{i}{
+    @media @mobile-portrait, @mobile-landscape, @small-tablet-portrait{
+      padding-right: ((@n * @i) + 0px) !important;
+    }
   }
+
+  &.add-extra-padding-right-sm-@{i}{
+    @media @small-tablet-landscape, @tablet-portrait{
+      padding-right: ((@n * @i) + 0px) !important;
+    }
+  }
+
+  &.add-extra-padding-right-md-@{i}{
+    @media @tablet-landscape{
+      padding-right: ((@n * @i) + 0px) !important;
+    }
+  }
+
+  &.add-extra-padding-right-lg-@{i}{
+    @media @desktop{
+      padding-right: ((@n * @i) + 0px) !important;
+    }
+  }
+
   .generate-padded-right-columns(@n, (@i + 1));
 }
 
